@@ -77,8 +77,8 @@ def detectar_marcacao(rect, idx, image, alternativas, respostas):
         else:
             respostas[f"{idx * 10 + i + 1}"] = "Não detectada"
 
-@functions_framework.http
-def hello_http(request):    
+#@functions_framework.http
+def hello_http():    
     try:
         # URL da imagem
         url = 'https://static.wixstatic.com/media/e1fca1_51139647635e41eba8f66f1ec4f4d5a2~mv2.jpg'
@@ -136,3 +136,5 @@ def hello_http(request):
     except Exception as e:
         # Retornar uma mensagem de erro em caso de exceção
         return json.dumps({'error': str(e)}), 500, {'Content-Type': 'application/json'}
+
+hello_http()
