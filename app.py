@@ -67,8 +67,15 @@ def detectar_marcacao(rect, idx, image, alternativas, respostas):
 @app.route('/process', methods=['GET'])
 def hello_http():
     try:
-        url = 'https://static.wixstatic.com/media/3a8958_0edd9be7961645f4b6516403348095e3~mv2.jpg'
+        # Recebe a URL da imagem como parâmetro de consulta
+        url = request.args.get('url')
+        if not url:
+            return jsonify({'error': 'URL da imagem não fornecida'}), 400
+        
+        # Carrega a imagem a partir da URL
         image = url_to_image(url)
+        
+        # Processamento da imagem
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         gray = cv2.equalizeHist(gray)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
