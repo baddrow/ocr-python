@@ -67,7 +67,7 @@ def detectar_marcacao(rect, idx, image, alternativas, respostas):
 @app.route('/process', methods=['GET'])
 def hello_http():
     try:
-        url = 'https://static.wixstatic.com/media/3a8958_4ffe0eb158b84d5c827c9292ed93bc0a~mv2.jpg'
+        url = 'https://static.wixstatic.com/media/3a8958_0edd9be7961645f4b6516403348095e3~mv2.jpg'
         image = url_to_image(url)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         gray = cv2.equalizeHist(gray)
